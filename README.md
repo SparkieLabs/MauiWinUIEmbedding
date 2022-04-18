@@ -39,24 +39,14 @@ public sealed partial class MainWindow : Window
         //Create and save a Maui Context. This is needed for creating Platform UI
         var mauiContext = new MauiContext(mauiApp.Services);
 
-        // Create a Maui button
+        //Create a Maui button
         _mauiButton = new Microsoft.Maui.Controls.Button { Text = "Click Maui!" };
-        _mauiButton.Clicked += MauiButton_Clicked;
 
         //Turn the Maui button into an WinUI FrameworkElement
         var frameworkElement = _mauiButton.ToPlatform(mauiContext);
 
+        //Use the WinUI framework element
         this.myStackPanel.Children.Add(frameworkElement);
-    }
-
-    void MauiButton_Clicked(object sender, EventArgs e)
-    {
-        _mauiButton.Text = "Aloha!";
-    }
-
-    void myButton_Click(object sender, RoutedEventArgs e)
-    {
-        myButton.Content = "Clicked";
     }
 }
 
